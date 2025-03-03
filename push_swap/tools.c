@@ -31,7 +31,7 @@ t_list *ft_newnode(int a)
 {
     t_list *node;
 
-    node = (t_list *)malloc(sizeof(t_list));
+    node = malloc(sizeof(t_list));
     if (!node)
         return (NULL);
     node->data = a;

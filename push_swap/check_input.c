@@ -1,6 +1,11 @@
 #include "push_swap.h"
 
-int ft_check_input(char **av, int ac)
+void get_out(char *str)
+{
+    ft_putstr(str);
+    exit(1);
+}
+void ft_check_input(char **av, int ac)
 {
     int i;
     int j;
@@ -16,14 +21,12 @@ int ft_check_input(char **av, int ac)
             if (av[j][i] == '-' || av[j][i] == '+')
             {
                 if (av[j][i+1] == '-' || av[j][i+1] == '+')
-                    return (0);
+                    get_out("error\n");
             }
             i++;
         }
         if (av[j][i] != '\0')
-            return (0);
+            get_out("error\n");
        j++;
-
     }
-    return (1);
 }

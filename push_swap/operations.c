@@ -4,7 +4,7 @@ void ft_sa(t_list **stackA)
 {
     t_list *tmp;
 
-    if (!stackA || !(*stackA))
+    if (!stackA || !(*stackA) || !(*stackA)->next)
         return ;
     tmp = (*stackA)->next;
     (*stackA)->next = (*stackA)->next->next;
@@ -13,16 +13,16 @@ void ft_sa(t_list **stackA)
     ft_putstr("sa\n");
 }
 
-void ft_sb(t_list **stackA)
+void ft_sb(t_list **stackB)
 {
     t_list *tmp;
 
-    if (!stackA || !(*stackA))
+    if (!stackB || !(*stackB) || !(*stackB)->next)
         return ;
-    tmp = (*stackA)->next;
-    (*stackA)->next = (*stackA)->next->next;
-    tmp->next = *stackA;
-    *stackA = tmp;
+    tmp = (*stackB)->next;
+    (*stackB)->next = (*stackB)->next->next;
+    tmp->next = *stackB;
+    *stackB = tmp;
     ft_putstr("sb\n");
 }
 

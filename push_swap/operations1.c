@@ -5,7 +5,7 @@ void ft_ra(t_list **stackA)
     t_list *tmp;
     t_list *p;
 
-    if (!stackA || !(*stackA) || (*stackA)->next == NULL)
+    if (!stackA || !(*stackA) || !(*stackA)->next)
         return ;
     tmp = *stackA;
     *stackA = (*stackA)->next;
@@ -21,7 +21,7 @@ void ft_rb(t_list **stackB)
     t_list *tmp;
     t_list *p;
 
-    if (!stackB || !(*stackB) || (*stackB)->next == NULL)
+    if (!stackB || !(*stackB) || !(*stackB)->next)
         return ;
     tmp = *stackB;
     tmp->next = NULL;

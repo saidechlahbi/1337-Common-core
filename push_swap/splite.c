@@ -74,16 +74,3 @@ char **ft_splite(char *str, char sep)
     }
     return (strings[i] = NULL, strings);
 }
-
-// int main ()
-// {
-//     char **str = ft_splite("  bghrefw fwrfnwejhfwe rfrhfwin wfhfwb wfwrbfbrfwb   ", ' ');
-//     //printf("%d\n", ft_atoi("        +45332     "));
-//     int  i = 0;
-//     while (str[i])
-//     {
-//         printf("%s\n",str[i]);
-//         i++;
-//     }
-//     printf("%s \n",str[i]);
-// }

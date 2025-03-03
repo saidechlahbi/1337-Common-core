@@ -17,7 +17,7 @@ void ft_free_strings(char **strings);
 
 ////fill from input ///
 t_list *ft_fill_stackA(t_list *head, char **strings);
-int ft_check_input(char **av, int ac);
+void ft_check_input(char **av, int ac);
 char **ft_splite(char *str, char sep);
 
 ///// tools ///
