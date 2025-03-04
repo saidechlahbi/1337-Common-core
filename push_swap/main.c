@@ -58,24 +58,22 @@ t_list *manage(int ac, char **av, t_list *head)
 
 int main (int ac, char **av)
 {
-    t_list *stackA, *stackB;
+    t_list *stackA, *stackB, *tmp;
     stackA = NULL;
     stackB = NULL;
 
     if (ac <= 1)
         return 0;
-///// manage the inpute ////
     stackA = manage(ac, av, stackA);
-///// printf the result before the sort ////
-    t_list *tmp = stackA;
+   chunk_sort(&stackA, &stackB);
+
+    tmp = stackA;
     while (tmp)
     {
-        printf("%d--->",tmp->data);
+        printf("%d -> ",tmp->data);
         tmp = tmp->next;
     }
     ft_free_list(stackA);
     printf("\n");
-
-///// the lgorrithme ////
     return (0);
 }

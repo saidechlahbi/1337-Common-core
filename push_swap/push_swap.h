@@ -44,12 +44,6 @@ void ft_ss(t_list **stackA, t_list **stackB);
 void ft_pa(t_list **stackA, t_list **stackB);
 void ft_pb(t_list **stackA, t_list **stackB);
 
-//algorithme1 ///
-int index_of_lower_element(t_list *stackA);
-void chanks_for_three_number(t_list **stackA);
-void chanks_for_five_number(t_list **stackA, t_list **stackB);
-void chunks(t_list **stackA, t_list **stackB);
-
 ///the real chunks /// 
 int ft_find_median(t_list *stackA, int size);
 int determine_chunk_size(int size);

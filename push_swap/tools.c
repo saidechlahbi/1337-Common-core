@@ -5,7 +5,7 @@ void ft_putstr(char *str)
         write (1, str++, 1);
 }
 
-void out(t_list *stackA, char **strings)
+static void out(t_list *stackA, char **strings)
 {
     ft_putstr("Error\n");
     ft_free_list(stackA);
