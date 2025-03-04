@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void get_out(char *str)
+static void get_out(char *str)
 {
     ft_putstr(str);
     exit(1);
@@ -21,12 +21,34 @@ void ft_check_input(char **av, int ac)
             if (av[j][i] == '-' || av[j][i] == '+')
             {
                 if (av[j][i+1] == '-' || av[j][i+1] == '+')
-                    get_out("error\n");
+                    get_out("Error\n");
             }
             i++;
         }
         if (av[j][i] != '\0')
-            get_out("error\n");
+            get_out("Error\n");
        j++;
+    }
+}
+
+void repeat_nb(t_list *stackA)
+{
+    t_list (*tmp), (*tmp1);
+
+    tmp = stackA;
+    while (tmp)
+    {
+        tmp1 = tmp->next;
+        while (tmp1)
+        {
+            if (tmp->data == tmp1->data)
+            {
+                ft_putstr("Error\n");
+                ft_free_list(stackA);
+                exit(1);
+            }
+            tmp1 = tmp1->next;
+        }
+        tmp = tmp->next;
     }
 }

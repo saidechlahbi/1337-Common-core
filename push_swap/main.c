@@ -1,5 +1,6 @@
+
+
 #include "push_swap.h"
-#include <time.h>
 
 t_list *ft_fill_stackA(t_list *head, char **strings)
 {
@@ -12,7 +13,12 @@ t_list *ft_fill_stackA(t_list *head, char **strings)
     head2 = NULL;
     while (strings[i])
     {
-        tmp = ft_newnode(ft_atoi(strings[i]));
+        tmp = ft_newnode(ft_atoi(strings[i], head, strings));
+        if (!tmp) {
+            ft_free_list(head2);
+            ft_free_strings(strings);
+            return NULL;
+        }
         head2 = ft_addback(head2, tmp);
         i++;
     }
@@ -39,21 +45,19 @@ t_list *manage(int ac, char **av, t_list *head)
         strings = ft_splite(av[i], ' ');
         if (!strings)
         {
-            ft_putstr("error\n");
+            ft_putstr("Error\n");
             ft_free_list(head);
             exit(1);
         }
         head = ft_fill_stackA(head, strings);
-        strings = NULL;
         i++;
     }
+    repeat_nb(head);
     return head;
 }
 
 int main (int ac, char **av)
 {
-    char **strings;
-
     t_list *stackA, *stackB;
     stackA = NULL;
     stackB = NULL;

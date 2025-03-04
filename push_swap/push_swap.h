@@ -18,10 +18,11 @@ void ft_free_strings(char **strings);
 ////fill from input ///
 t_list *ft_fill_stackA(t_list *head, char **strings);
 void ft_check_input(char **av, int ac);
+void repeat_nb(t_list *stackA);
 char **ft_splite(char *str, char sep);
 
 ///// tools ///
-int ft_atoi(char *str);
+int ft_atoi(char *str, t_list *stackA, char **strings);
 t_list *ft_newnode(int a);
 t_list *ft_addback(t_list *lst, t_list *node);
 void ft_putstr(char *str);

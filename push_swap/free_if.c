@@ -2,13 +2,13 @@
 
 void ft_free_strings(char **strings)
 {
-    while (*strings)
+    int i = 0;
+    while (strings[i])
     {
-        free(*strings);
-        *(strings++);
+        free(strings[i]);
+        i++;
     }
-    free(*strings);
-//    *strings = NULL;
+    free(strings);
 }
 
 void ft_free_list(t_list *head)

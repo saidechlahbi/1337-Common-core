@@ -23,6 +23,7 @@ static char *ft_fill(char *str, char sep)
     char* string;
     int i;
 
+    i = 0;
     while (str[i] && str[i] != ' ')
         i++;
     string = malloc (i + 1);

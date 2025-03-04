@@ -4,10 +4,19 @@ void ft_putstr(char *str)
     while (*str)
         write (1, str++, 1);
 }
-int ft_atoi(char *str)
+
+void out(t_list *stackA, char **strings)
+{
+    ft_putstr("Error\n");
+    ft_free_list(stackA);
+    ft_free_strings(strings);
+    exit(1);
+}
+
+int ft_atoi(char *str, t_list *stackA, char **strings)
 {
     int signe;
-    int result;
+    long result;
 
     signe = 1;
     result = 0;
@@ -19,12 +28,18 @@ int ft_atoi(char *str)
             signe = -1;
         str++;
     }
+    if (*str < '0' || *str > '9')
+        out(stackA, strings);
     while(*str && (*str >= '0' && *str <= '9'))
     {
         result = (10 * result) + (*str - 48) ;
         str++;
+        if (result * signe > 2147483647 || result * signe < -2147483648)
+            out(stackA, strings);
     }
-    return (result * signe);
+    if (*str)
+        out(stackA, strings);
+    return ((int)result * signe);
 }
 
 t_list *ft_newnode(int a)
