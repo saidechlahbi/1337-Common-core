@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/09 14:23:11 by sechlahb          #+#    #+#             */
+/*   Updated: 2025/03/04 16:59:09 by sechlahb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
@@ -5,6 +17,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+//#define malloc(r) NULL // for malloc failure
 typedef struct s_list
 {
     int     data;

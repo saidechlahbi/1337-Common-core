@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:19:26 by sechlahb          #+#    #+#             */
-/*   Updated: 2025/03/05 03:36:56 by sechlahb         ###   ########.fr       */
+/*   Updated: 2025/03/05 02:59:06 by sechlahb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <time.h>
 
-
-static void	ft_all_the_paths(t_pipex *pipex)
+void	ft_init(t_pipex *pipex, int ac, char **av, char **envp)
 {
 	int		i;
 	char	*str;
 	char	**paths;
 
 	i = 0;
-	while (pipex->envp[i] != NULL)
-	{
-		if (ft_strncmp(pipex->envp[i], "PATH=", 5) == 0)
-			break;
+	pipex->ac = ac;
+	pipex->av = av;
+	pipex->envp = envp;
+	while (ft_strncmp(pipex->envp[i], "PATH=", 5) != 0)
 		i++;
-	}
-	if (pipex->envp[i] == NULL)
-		return ;
-
 	str = ft_strtrim(pipex->envp[i], "PATH=");
 	if (!str)
 		return ;
@@ -42,7 +38,7 @@ static void	ft_all_the_paths(t_pipex *pipex)
 	free(str);
 }
 
-static char	*ft_right_path(t_pipex *pipex, char *comand)
+char	*ft_right_path(t_pipex *pipex, char *comand)
 {
 	char	*str;
 	char	*cmd;
@@ -50,7 +46,10 @@ static char	*ft_right_path(t_pipex *pipex, char *comand)
 
 	i = 0;
 	if (!pipex->paths)
+	{
+		ft_free(pipex); 
 		exit(1);
+	}
 	if (access(comand, X_OK) == 0)
 		return (ft_strdup(comand));
 	while (pipex->paths[i])
@@ -70,42 +69,43 @@ static char	*ft_right_path(t_pipex *pipex, char *comand)
 	return (NULL);
 }
 
-static void ft_exit(t_pipex *pipex)
+char **ft_init_cmd(char *cmd)
 {
-	if (!pipex->cmd1)
+	char **str;
+	int (booll), (i);
+
+	if (cmd[0] == 0)
+		return NULL;
+	i = 0;
+	booll = 0;
+	while (cmd[i] && cmd[i] != '\'')
+		i++;
+	if (cmd[i])
+		booll = 1;
+	if (booll == 1)
 	{
-		ft_free(pipex);
-		exit(1);
-	}else if (!pipex->cmd2)
+		str = ft_splite(cmd, ' ');
+		if (!str)
+			return NULL;
+	}else
 	{
-		ft_free(pipex);
-		exit(1);
+		str = ft_split(cmd, ' ');
+		if (!str)
+			return NULL;
 	}
+	return str;
 }
 
-static void initialisation(t_pipex *pipex)
+char **last_cmd(t_pipex *pipex, char *str)
 {
-	pipex->cmd1 = NULL;
-	pipex->cmd2 = NULL;
-	pipex->paths = NULL;
-}
+	char **command;
+	char *a;
 
-void	ft_init(t_pipex *pipex, char **av, char **envp)
-{
-	char	*a;
-	char	*b;
-
-	initialisation(pipex);
-	pipex->av = av;
-	pipex->envp = envp;
-	pipex->cmd1 = ft_split(pipex->av[2], ' ');
-	pipex->cmd2 = ft_split(pipex->av[3], ' ');
-	ft_exit(pipex);
-	ft_all_the_paths(pipex);
-	a = pipex->cmd1[0];
-	b = pipex->cmd2[0];
-	pipex->cmd1[0] = ft_right_path(pipex, pipex->cmd1[0]);
-	pipex->cmd2[0] = ft_right_path(pipex, pipex->cmd2[0]);
+	command = ft_init_cmd(str);
+	if (!command)
+		return NULL;
+	a = command[0];
+	command[0] = ft_right_path(pipex, command[0]);
 	free(a);
-	free(b);
+	return command;
 }

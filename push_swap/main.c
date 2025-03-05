@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sechlahb <sechlahb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/09 14:23:11 by sechlahb          #+#    #+#             */
+/*   Updated: 2025/03/04 16:59:09 by sechlahb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -45,7 +55,6 @@ t_list *manage(int ac, char **av, t_list *head)
         strings = ft_splite(av[i], ' ');
         if (!strings)
         {
-            ft_putstr("Error\n");
             ft_free_list(head);
             exit(1);
         }
