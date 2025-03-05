@@ -27,18 +27,15 @@ typedef struct s_pipex{
     int fd2;
     pid_t pid1;
     pid_t pidn;
-    char **cmd1;
-    char **cmdn;
     char **paths;
 }   t_pipex;
 
-char    **ft_splite(char const *s, char c);
-void    ft_all_the_paths(t_pipex *pipex);
+
+void ft_initialization(int ac, char **av, char **envp, t_pipex *pipex);
+char **cmd_giver(t_pipex *pipex, char *str);
+
 void    ft_free_split(char **str);
-char    *ft_right_path(t_pipex *pipex, char *comand);
 void    ft_free(t_pipex *pipex);
-void    ft_init(t_pipex *pipex, int ac, char **av, char **envp);
-char    **last_cmd(t_pipex *pipex, char *str);
 
 ///// get next line ////
 # ifndef BUFFER_SIZE

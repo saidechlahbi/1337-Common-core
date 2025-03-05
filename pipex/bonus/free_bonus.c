@@ -24,10 +24,6 @@ void	ft_free_split(char **str)
 
 void	ft_free(t_pipex *pipex)
 {
-	if (pipex->cmd1)
-		ft_free_split(pipex->cmd1);
-	if (pipex->cmdn)
-		ft_free_split(pipex->cmdn);
 	if (pipex->paths)
 		ft_free_split(pipex->paths);
 	if (pipex->fd1)

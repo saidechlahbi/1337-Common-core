@@ -13,18 +13,22 @@
 #include "pipex.h"
 #include <time.h>
 
-void	ft_init(t_pipex *pipex, int ac, char **av, char **envp)
+static void	ft_all_the_paths(t_pipex *pipex)
 {
 	int		i;
 	char	*str;
 	char	**paths;
 
 	i = 0;
-	pipex->ac = ac;
-	pipex->av = av;
-	pipex->envp = envp;
-	while (ft_strncmp(pipex->envp[i], "PATH=", 5) != 0)
+	while (pipex->envp[i] != NULL)
+	{
+		if (ft_strncmp(pipex->envp[i], "PATH=", 5) == 0)
+			break;
 		i++;
+	}
+	if (pipex->envp[i] == NULL)
+		return ;
+
 	str = ft_strtrim(pipex->envp[i], "PATH=");
 	if (!str)
 		return ;
@@ -38,18 +42,13 @@ void	ft_init(t_pipex *pipex, int ac, char **av, char **envp)
 	free(str);
 }
 
-char	*ft_right_path(t_pipex *pipex, char *comand)
+static char	*ft_right_path(t_pipex *pipex, char *comand)
 {
 	char	*str;
 	char	*cmd;
 	int		i;
 
 	i = 0;
-	if (!pipex->paths)
-	{
-		ft_free(pipex); 
-		exit(1);
-	}
 	if (access(comand, X_OK) == 0)
 		return (ft_strdup(comand));
 	while (pipex->paths[i])
@@ -69,43 +68,32 @@ char	*ft_right_path(t_pipex *pipex, char *comand)
 	return (NULL);
 }
 
-char **ft_init_cmd(char *cmd)
+void ft_initialization(int ac, char **av, char **envp, t_pipex *pipex)
 {
-	char **str;
-	int (booll), (i);
-
-	if (cmd[0] == 0)
-		return NULL;
-	i = 0;
-	booll = 0;
-	while (cmd[i] && cmd[i] != '\'')
-		i++;
-	if (cmd[i])
-		booll = 1;
-	if (booll == 1)
-	{
-		str = ft_splite(cmd, ' ');
-		if (!str)
-			return NULL;
-	}else
-	{
-		str = ft_split(cmd, ' ');
-		if (!str)
-			return NULL;
-	}
-	return str;
+	pipex->ac = ac;
+	pipex->av = av;
+	pipex->envp = envp;
+	pipex->paths = NULL;
+	ft_all_the_paths(pipex);
+	if (!pipex->paths)
+		exit(1);
 }
 
-char **last_cmd(t_pipex *pipex, char *str)
+char **cmd_giver(t_pipex *pipex, char *str)
 {
-	char **command;
-	char *a;
+	char **strings;
+	char *cmd, *s;
 
-	command = ft_init_cmd(str);
-	if (!command)
-		return NULL;
-	a = command[0];
-	command[0] = ft_right_path(pipex, command[0]);
-	free(a);
-	return command;
+	strings = NULL;
+	strings = ft_split(str, ' ');
+	if (!strings)
+	{
+
+	}
+	cmd = ft_right_path(pipex, strings[0]);
+	if (!cmd)
+		ft_free_split(strings);
+	s = strings[0];
+	strings[0] = cmd;
+	return (free(s), strings);
 }
