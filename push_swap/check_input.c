@@ -33,7 +33,7 @@ void ft_check_input(char **av, int ac)
             if (av[j][i] == '-' || av[j][i] == '+')
             {
                 if (av[j][i+1] == '-' || av[j][i+1] == '+')
-                    get_out("Error\n");malloc
+                    get_out("Error\n");
             }
             i++;
         }

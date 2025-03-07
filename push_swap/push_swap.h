@@ -57,7 +57,7 @@ void ft_ss(t_list **stackA, t_list **stackB);
 void ft_pa(t_list **stackA, t_list **stackB);
 void ft_pb(t_list **stackA, t_list **stackB);
 
-///the real chunks /// 
+// Chunk sorting functions
 int ft_find_median(t_list *stackA, int size);
 int determine_chunk_size(int size);
 void push_chunks(t_list **stackA, t_list **stackB, int median);
@@ -68,4 +68,6 @@ void merge_stacks(t_list **stackA, t_list **stackB);
 void efficient_merge(t_list **stackA, t_list **stackB);
 void chunk_sort(t_list **stackA, t_list **stackB);
 
+//// check if sorted 
+void one_to_three(t_list*lst);
 #endif

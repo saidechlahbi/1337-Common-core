@@ -1,7 +1,8 @@
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
-FILES = check_input.c chunks.c free_if.c main.c operations.c operations1.c operations2.c splite.c tools.c
+FILES = check_input.c  free_if.c main.c \
+		 operations.c operations1.c operations2.c splite.c tools.c chanks1.c chanks.c
 
 OBJ = $(FILES:.c=.o)
 
@@ -23,4 +24,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-.SECONDARY: $(OBJ)

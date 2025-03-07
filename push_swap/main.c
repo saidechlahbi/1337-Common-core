@@ -74,7 +74,11 @@ int main (int ac, char **av)
     if (ac <= 1)
         return 0;
     stackA = manage(ac, av, stackA);
-   chunk_sort(&stackA, &stackB);
+  // chunk_sort(&stackA, &stackB);
+    if (ft_list_size(stackA) > 3)
+        chunk_sort(&stackA, &stackB);
+    else
+        one_to_three(stackA);
 
     tmp = stackA;
     while (tmp)
