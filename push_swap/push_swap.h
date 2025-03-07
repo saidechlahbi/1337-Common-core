@@ -21,6 +21,11 @@
 typedef struct s_list
 {
     int     data;
+    int index;
+    int pos;
+    int costa;
+    int costb;
+    struct s_list *target;
     struct s_list *next;
 }       t_list;
 
@@ -69,5 +74,12 @@ void efficient_merge(t_list **stackA, t_list **stackB);
 void chunk_sort(t_list **stackA, t_list **stackB);
 
 //// check if sorted 
+void sort_three(t_list **head) ;
+void check_is_sorted(t_list *stackA);
 void one_to_three(t_list*lst);
+
+///algothme/////
+void push_using_middle(t_list **stackA, t_list **stackB, int size);
+void position(t_list *stack);
+
 #endif

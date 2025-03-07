@@ -1,7 +1,5 @@
 #include "push_swap.h"
 
-#include "push_swap.h"
-
 // Find the median value in the stack
 int ft_find_median(t_list *stackA, int size) {
     int *arr = malloc(size * sizeof(int));

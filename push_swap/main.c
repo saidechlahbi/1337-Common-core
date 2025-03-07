@@ -67,26 +67,43 @@ t_list *manage(int ac, char **av, t_list *head)
 
 int main (int ac, char **av)
 {
-    t_list *stackA, *stackB, *tmp;
+    t_list *stackA, *stackB, *tmp, *tmp2;
     stackA = NULL;
     stackB = NULL;
 
     if (ac <= 1)
         return 0;
     stackA = manage(ac, av, stackA);
-  // chunk_sort(&stackA, &stackB);
-    if (ft_list_size(stackA) > 3)
-        chunk_sort(&stackA, &stackB);
-    else
+    check_is_sorted(stackA);
+    if (ft_list_size(stackA) <= 3)
         one_to_three(stackA);
+    // else
+    //     chunk_sort(&stackA, &stackB);
 
+    push_using_middle(&stackA, &stackB, ft_list_size(stackA));
+    position(stackA);
+    position(stackB);
+
+///////// test ////////////////////////
+printf("hello\n");
     tmp = stackA;
+    tmp2 = stackB;
+//////////////////
     while (tmp)
     {
-        printf("%d -> ",tmp->data);
+        printf("%d /%d//   -> ",tmp->data, tmp->pos);
         tmp = tmp->next;
     }
-    ft_free_list(stackA);
     printf("\n");
+/////////////////////////////////
+    while (tmp2)
+    {
+        printf("%d //%d//      -> ",tmp2->data, tmp2->pos);
+        tmp2 = tmp2->next;
+    }
+    printf("\n");
+//////////////////////
+    ft_free_list(stackA);
+    ft_free_list(stackB);
     return (0);
 }

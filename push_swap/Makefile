@@ -1,8 +1,8 @@
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
-FILES = check_input.c  free_if.c main.c \
-		 operations.c operations1.c operations2.c splite.c tools.c chanks1.c chanks.c
+FILES = check_input.c  free_if.c main.c algorithme.c algorithme1.c \
+		 operations.c operations1.c operations2.c splite.c tools.c less_than_4.c chanks.c
 
 OBJ = $(FILES:.c=.o)
 
