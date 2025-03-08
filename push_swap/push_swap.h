@@ -23,8 +23,7 @@ typedef struct s_list
     int     data;
     int index;
     int pos;
-    int costa;
-    int costb;
+    int cost;
     struct s_list *target;
     struct s_list *next;
 }       t_list;
@@ -81,5 +80,27 @@ void one_to_three(t_list*lst);
 ///algothme/////
 void push_using_middle(t_list **stackA, t_list **stackB, int size);
 void position(t_list *stack);
+void turk(t_list **stackA, t_list **stackB);
+
+
+
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
+char	*ft_calloc(size_t nmemb, size_t size);
+char	*get_next_line(int fd);
+int		ft_strlen(char *s);
+char	*ft_strchr(char *s, int c);
+char	*ft_strdup(char *s);
+char	*ft_strjoin(char *s1, char *s2);
+char	*get_last_rest_of_line(char *str);
+char	*get_rest_for_next_line(char *str);
+char	*get_next_line(int fd);
 
 #endif

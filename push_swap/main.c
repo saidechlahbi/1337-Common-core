@@ -77,33 +77,30 @@ int main (int ac, char **av)
     check_is_sorted(stackA);
     if (ft_list_size(stackA) <= 3)
         one_to_three(stackA);
-    // else
-    //     chunk_sort(&stackA, &stackB);
+    else
+        turk(&stackA, &stackB);
 
-    push_using_middle(&stackA, &stackB, ft_list_size(stackA));
-    position(stackA);
-    position(stackB);
+   
 
 ///////// test ////////////////////////
-printf("hello\n");
-    tmp = stackA;
-    tmp2 = stackB;
-//////////////////
-    while (tmp)
-    {
-        printf("%d /%d//   -> ",tmp->data, tmp->pos);
-        tmp = tmp->next;
-    }
-    printf("\n");
-/////////////////////////////////
-    while (tmp2)
-    {
-        printf("%d //%d//      -> ",tmp2->data, tmp2->pos);
-        tmp2 = tmp2->next;
-    }
-    printf("\n");
-//////////////////////
-    ft_free_list(stackA);
-    ft_free_list(stackB);
+//     tmp = stackA;
+// //////////////////
+//     while (tmp)
+//     {
+//         printf("%d    -> ",tmp->data);
+//         tmp = tmp->next;
+//     }
+//     printf(" stack a\n \n \n");
+
+//    tmp = stackB;
+// //////////////////
+//     while (tmp)
+//     {
+//         printf("%d    -> ",tmp->data);
+//         tmp = tmp->next;
+//     }
+//     printf(" stack b\n");
+// // //////////////////////
+//     ft_free_list(stackA);
     return (0);
 }

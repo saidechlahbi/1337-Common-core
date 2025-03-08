@@ -17,7 +17,7 @@ static int *return_tab(t_list *stackA, int size)
     int (*tab), i;
 
     i = 0;
-    tab = malloc(sizeof(int) + 1);
+    tab = malloc(sizeof(int) * ( size  + 1));
     if (!tab)
     {
         ft_free_list(stackA);
@@ -55,6 +55,9 @@ static int *sort_array(t_list *stackA, int size)
 
 static t_list *ft_serch(t_list *stackA, int a)
 {
+
+    if (!stackA)
+        return NULL;
     while (stackA && stackA->data != a)
         stackA =stackA->next;
     return stackA;
@@ -65,13 +68,14 @@ int indexing(t_list *stackA, int size)
     t_list *tmp;
 
     tab = sort_array(stackA, size);
-    i = -1;
-    while (i++ < size - 1)
+    i = 0;
+    while (i < size )
     {
         tmp = ft_serch(stackA, tab[i]);
         tmp->index = i;
+        i++;
     }
-    middle = tab[(size) / 2];
+    middle = tab[size / 2];
     return (free(tab), middle);
 }
 
@@ -80,20 +84,20 @@ void push_using_middle(t_list **stackA, t_list **stackB, int size)
     int (i), (middle);
     t_list *tmp;
 
-    i = -1;
+    i = 0;
     tmp = *stackA;
     middle = indexing(*stackA, size);
-    while (i++ < size -1)
+    while (i < size )
     {
         tmp = *stackA;
         if (tmp->data < middle)
             ft_pb(stackA, stackB);
         else 
             ft_ra(stackA);
+        i++;
     }
     tmp = *stackA;
-    i = -1;
-    while (i++ < size - 1)
+    while (ft_list_size(*stackA) > 3)
     {
         tmp = *stackA;
         if (tmp->index < size - 3)
