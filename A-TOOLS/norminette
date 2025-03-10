@@ -1,0 +1,7 @@
+pip3 install c-formatter-42
+pip3 install --user c-formatter-42  # If you don't have root privileges
+export PATH=$PATH:~/.local/bin
+
+export PATH=$PATH:~/.local/bin
+source ~/.bashrc  # or `source ~/.zshrc` if using zsh
+c_formatter_42 *.c
