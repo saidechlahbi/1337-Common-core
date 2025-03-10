@@ -35,7 +35,7 @@ char	*ft_itoa(int n)
 
 	p = n;
 	lenght = count_digit(p);
-	str = (char *)malloc (lenght + 1);
+	str = (char *)malloc(lenght + 1);
 	if (!str)
 		return (NULL);
 	str[lenght] = '\0';

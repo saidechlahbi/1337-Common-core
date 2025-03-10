@@ -50,8 +50,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 // 	s = (int *)ft_memmove(buffer + 2, buffer , 2);
 // 	while(i < 7)
 // 	{
-// 	    printf("%d\t",s[i]);
-// 		i++; 
+// 		 printf("%d\t",s[i]);
+// 		i++;
 // 	}
 // 	printf("\n");
 

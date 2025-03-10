@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void ft_rra(t_list **stackA)
+void rra(t_list **stackA)
 {
     t_list *tmp;
     t_list *m;
@@ -26,10 +26,9 @@ void ft_rra(t_list **stackA)
     tmp->next = NULL;
     m->next = *stackA;
     *stackA = m;
-    ft_putstr("rra\n");
 }
 
-void ft_rrb(t_list **stackB)
+void rrb(t_list **stackB)
 {
     t_list *tmp;
     t_list *m;
@@ -43,10 +42,9 @@ void ft_rrb(t_list **stackB)
     tmp->next = NULL;
     m->next = *stackB;
     *stackB = m;
-    ft_putstr("rrb\n");
 }
 
-void ft_rrr(t_list **stackB, t_list **stackA)
+void rrr(t_list **stackB, t_list **stackA)
 {
     t_list *tmp;
     t_list *m;
@@ -69,5 +67,4 @@ void ft_rrr(t_list **stackB, t_list **stackA)
     tmp->next = NULL;
     m->next = *stackB;
     *stackB = m;
-    ft_putstr("rrr\n");
 }

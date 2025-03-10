@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void ft_sa(t_list **stackA)
+void sa(t_list **stackA)
 {
     t_list *tmp;
 
@@ -22,10 +22,9 @@ void ft_sa(t_list **stackA)
     (*stackA)->next = (*stackA)->next->next;
     tmp->next = *stackA;
     *stackA = tmp;
-    ft_putstr("sa\n");
 }
 
-void ft_sb(t_list **stackB)
+void sb(t_list **stackB)
 {
     t_list *tmp;
 
@@ -35,10 +34,9 @@ void ft_sb(t_list **stackB)
     (*stackB)->next = (*stackB)->next->next;
     tmp->next = *stackB;
     *stackB = tmp;
-    ft_putstr("sb\n");
 }
 
-void ft_ss(t_list **stackA, t_list **stackB)
+void ss(t_list **stackA, t_list **stackB)
 {
     t_list *tmp;
 
@@ -55,10 +53,9 @@ void ft_ss(t_list **stackA, t_list **stackB)
     (*stackB)->next = (*stackB)->next->next;
     tmp->next = *stackB;
     *stackB = tmp;
-    ft_putstr("ss\n");
 }
 
-void ft_pa(t_list **stackA, t_list **stackB)
+void pa(t_list **stackA, t_list **stackB)
 {
     t_list *tmp;
 
@@ -70,15 +67,13 @@ void ft_pa(t_list **stackA, t_list **stackB)
     {
         *stackA = tmp;
         tmp->next = NULL;
-        ft_putstr("pa\n");
         return ;
     }
     tmp->next = *stackA;
     *stackA = tmp;
-    ft_putstr("pa\n");
 }
 
-void ft_pb(t_list **stackA, t_list **stackB)
+void pb(t_list **stackA, t_list **stackB)
 {
     t_list *tmp;
 
@@ -90,11 +85,9 @@ void ft_pb(t_list **stackA, t_list **stackB)
     {
         tmp->next = NULL;
         *stackB = tmp;
-        ft_putstr("pb\n");  
         return ;
     }
     tmp->next = *stackB;
     *stackB = tmp; 
-    ft_putstr("pb\n");   
 }
 

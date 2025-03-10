@@ -14,11 +14,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include <stdio.h>
-# include <stddef.h>
 # include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
 ////// star of part 1
 void	ft_bzero(void *s, unsigned char n);
 void	*ft_memchr(const void *s, int c, size_t n);

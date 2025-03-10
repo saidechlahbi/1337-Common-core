@@ -105,39 +105,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (strings[i + 1] = NULL, strings);
 }
-
-// int main ()
-// {
-// 	int i = 0;
-// 	// char const *s = " ahello a  worldhal";
-// 	// printf("%d\n",count_strings(s,'a'));
-//     // printf("%d\n",count_lenth(s+6,'a'));
-//     char **str = ft_split(" hello world halaa ",' ');
-//     while (str[i] != NULL)
-//     {
-//         printf("%s\n",str[i]);
-// 		free(str[i]);
-//         i++;   
-//     }
-//     free(str);
-// }
-
-
-
-
-// char	**ft_split(char const *s, char c)
-// {
-// 	int i;
-// 	char *p1;
-// 	char *p2;
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		p1 = s;
-// 		while (s[i] != ' ')
-// 			i++;
-// 		p2 = &s[i];		
-// 		i++;
-// 	}
-// }
-

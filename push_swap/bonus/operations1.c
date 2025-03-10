@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void ft_ra(t_list **stackA)
+void ra(t_list **stackA)
 {
     t_list *tmp;
     t_list *p;
@@ -27,9 +27,8 @@ void ft_ra(t_list **stackA)
     while (p->next)
         p = p->next;
     p->next = tmp;
-    ft_putstr("ra\n");
 }
-void ft_rb(t_list **stackB)
+void rb(t_list **stackB)
 {
     t_list *tmp;
     t_list *p;
@@ -43,10 +42,9 @@ void ft_rb(t_list **stackB)
     while (p->next)
         p = p->next;
     p->next = tmp;
-    ft_putstr("rb\n");
 }
 
-void ft_rr(t_list **stackB, t_list **stackA)
+void rr(t_list **stackB, t_list **stackA)
 {
     t_list *tmp;
     t_list *p;
@@ -69,5 +67,4 @@ void ft_rr(t_list **stackB, t_list **stackA)
     while (p->next)
         p = p->next;
     p->next = tmp;
-    ft_putstr("rr\n");
 }

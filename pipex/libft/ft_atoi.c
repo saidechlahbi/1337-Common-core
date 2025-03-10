@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int		result;
-	int		signe;
+	int	result;
+	int	signe;
 
 	signe = 1;
 	result = 0;
@@ -38,5 +38,5 @@ int	ft_atoi(const char *str)
 // int main ()
 // {
 //     printf("%d\n", ft_atoi("2147483649999 "));
-// 	 printf("%d\n", atoi("2147483649999 "));
+// 		printf("%d\n", atoi("2147483649999 "));
 // }

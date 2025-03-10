@@ -32,7 +32,7 @@ static int	ft_triming_in_beginning(char const *s1, char const *set)
 	return (start);
 }
 
-static	int	ft_triming_in_end(char const *s1, char const *set)
+static int	ft_triming_in_end(char const *s1, char const *set)
 {
 	int	end;
 	int	j;
