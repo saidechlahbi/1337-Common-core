@@ -32,10 +32,3 @@ int	ft_putstr(char *str)
 	}
 	return (count);
 }
-
-// int main ()
-// {
-//     int i = ft_putstr("");
-//     //int i = printf("yhfdjshiwehf");
-//     printf("%d\n",i);
-// }
