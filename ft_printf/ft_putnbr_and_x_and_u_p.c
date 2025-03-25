@@ -82,9 +82,3 @@ int	ft_void_hexadecimal(unsigned long ptr)
 	count += ft_putchar(s);
 	return (count);
 }
-
-// int main ()
-// {
-//     int i = ft_putnbr(-54321);
-//     printf("\n%d\n",i);
-// }
